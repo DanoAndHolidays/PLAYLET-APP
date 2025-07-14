@@ -7,43 +7,52 @@
     <title>PLAYLET APP</title>
 </head>
 <link rel="stylesheet" href="./src/style.css">
+<link rel="stylesheet" href="./src/placeholder.css">
 <link rel="icon" href="./public/image/icon.jpg" type="image/x-icon">
 
 <body>
-    <nav class="nav">
-        <h1><a href="">PLAYLET</a></h1>
-        <input class="nav-serch" type="text" placeholder="请输入...">
-        <ul class="nav-ul">
-            <li><a href="">首页</a></li>
-            <li><a href="">分类</a></li>
-            <li><a href="">个人中心</a></li>
-        </ul>
-    </nav>
-    <div class="category" id="category">
-        <p> 分区 </p>
-    </div>
-
-
+    <header>
+        <nav class="nav">
+            <h1><a href="">PLAYLET</a></h1>
+            <input class="nav-serch" type="text" placeholder="请输入...">
+            <ul class="nav-ul">
+                <li><a href="">首页</a></li>
+                <li><a href="">分类</a></li>
+                <li><a href="">个人中心</a></li>
+                <li><a href="weixin://bizmsgmenu?msgmenucontent=舍不得揍，太萌了&msgmenuid=960">点击就揍粘钩</a></li>
+            </ul>
+        </nav>
+        <div class="category" id="category">
+            <p>分区</p>
+            <button class="button unshow" id="categoryBtn">返回顶部</button>
+        </div>
+    </header>
 
     <main class="main">
-        <div class="main-content" id="main-content">
-            <div class="main-header">
-                <h3>今日热门</h3>
-                <button class="button upDataBtn" id="upDataBtn">换一批</button>
-            </div>
-            <div class="main-random" id="main-random">
-                <a href=""><img src="" alt=""></a>
-                <p>title</p>
-                <p><span>episode</span><span>episode_total</span></p>
-            </div>
-        </div>
-    </main>
 
-    <footer class="footer">
+    </main>
+    <div class="main-content" id="main-content">
+        <div class="main-header">
+            <h3>今日热门</h3>
+            <button class="button upDataBtn" id="upDataBtn">换一批</button>
+        </div>
+        <div class="main-random" id="main-random">
+
+            <div class="video placeholder">
+                <div></div>
+                <h4></h4>
+                <small></small>
+                <p></p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- <footer class="footer">
         <div>版权信息</div>
         <div>联系方式</div>
         <div>用户反馈</div>
-    </footer>
+    </footer> -->
     <script type="module" src="./src/main.js"></script>
 </body>
 

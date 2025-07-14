@@ -4,17 +4,35 @@ import { infiniteScroll } from './infiniteScroll.js';
 const mainRandomEl = document.getElementById("main-random");
 const upDataBtn = document.getElementById('upDataBtn');
 const category = document.getElementById('category');
+const categoryBtn = document.getElementById('categoryBtn');
 
-mainRandomEl.innerHTML = '';
+//清空主体的内容
+//mainRandomEl.innerHTML = '';
 showVideos(15);
 showCategoryList();
 showScrollInfo();
-infiniteScroll(500, 300, () => {
+infiniteScroll(700, 300, () => {
     console.log("触发无限滚动");
     showVideos(15);
 })
 
+categoryBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+})
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        categoryBtn.classList.remove('unshow');
+    } else {
+        categoryBtn.classList.add('unshow');
+    }
+});
+
 upDataBtn.addEventListener('click', () => {
+    mainRandomEl.innerHTML = '';
     showVideos(12);
 });
 
@@ -44,27 +62,30 @@ async function getCategoryList(page = 1, limit = 15) {
 }
 
 function showVideos(num) {
-    fetchVideoList(num).then(response => {
-        if (response.code !== 200) {
-            throw new Error(response.message || "请求失败");
-        }
-        const videoList = response.data.data;
+    addPlaceHolder(num);
+    setTimeout(() => {
+        fetchVideoList(num).then(response => {
+            if (response.code !== 200) {
+                throw new Error(response.message || "请求失败");
+            }
+            const videoList = response.data.data;
 
-        videoList.forEach(element => {
-            const { episode, url, episode_total, title, img } = element;
-            const videoEl = document.createElement('div');
-            videoEl.classList.add('video')
+            videoList.forEach(element => {
+                const { episode, url, episode_total, title, img } = element;
 
-            videoEl.innerHTML = `
+                const videoEl = document.querySelector('.placeholder')
+                console.log(videoEl);
+
+                videoEl.innerHTML = `
                 <div><img src="${img}" alt="剧集图片"></div>
                 <h4>${title}</h4>
                 <small> ${episode_total}集全 </small>
                 <p>当前剧集 <span>${episode}</span></p>
             `;
-
-            mainRandomEl.appendChild(videoEl);
-        });
-    })
+                videoEl.classList.remove('placeholder');
+            });
+        })
+    }, 500);
 }
 
 // 获取分类短剧列表
@@ -82,5 +103,19 @@ async function fetchVideoList(num, page = 1) {
         console.error('获取视频列表失败:', error);
         // 可以在这里添加UI错误提示
         throw error;
+    }
+}
+
+function addPlaceHolder(num) {
+    for (let i = 0; i < num; i++) {
+        const videoEl = document.createElement('div');
+        videoEl.classList.add('video', 'placeholder');
+        videoEl.innerHTML = `
+            <div></div>
+            <h4></h4>
+            <small></small>
+            <p></p>
+        `
+        mainRandomEl.appendChild(videoEl);
     }
 }

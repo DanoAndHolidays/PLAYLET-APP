@@ -9,6 +9,7 @@
     --nextcolor: #000000;
     --bodycolor: #e9e9e9;
     --smallcolor: #555555;
+    --whitecolor: #ffffff;
 }
 
 @font-face {
@@ -31,10 +32,12 @@ body {
     justify-content: center;
     overflow-x: hidden;
     margin: 0%;
-
+    min-width: 500px;
 }
 
-
+.unshow {
+    display: none;
+}
 
 .button {
     background-color: transparent;
@@ -51,20 +54,28 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+header {
+    position: sticky;
+    top: -72px;
+    z-index: 100;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .nav {
     background-color: var(--maincolor);
     color: var(--nextcolor);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
 }
 
 .nav a {
     text-decoration: none;
     color: var(--nextcolor);
+}
+
+a:focus {
+    outline: none;
 }
 
 .nav ul a {
@@ -100,6 +111,10 @@ body {
     padding: 15px 40px;
     display: flex;
     align-items: center;
+    background-color: var(--whitecolor);
+    opacity: 0.95;
+    position: relative;
+    width: 100%;
 }
 
 .category p {
@@ -107,6 +122,11 @@ body {
     background-color: var(--maincolor);
     padding: 0 10px;
     border-radius: 50px;
+}
+
+.category button {
+    position: absolute;
+    right: 40px;
 }
 
 .category span {
@@ -120,16 +140,13 @@ body {
     color: var(--nextcolor);
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--bodycolor);
-    justify-content: center;
-}
+
 
 .main-content {
     width: 100%;
     padding: 0px 30px;
+    background-color: var(--bodycolor);
+    min-height: 200vh;
 }
 
 .main-header {
@@ -153,6 +170,8 @@ body {
 }
 
 .video {
+    max-width: 350px;
+    min-width: 250px;
     width: 300px;
     height: 450px;
     border-radius: 10px;

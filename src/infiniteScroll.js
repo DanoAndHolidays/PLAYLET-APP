@@ -34,7 +34,7 @@ function scrollHandle(distance, callback) {
 }
 
 //call、bind、apply忘记了
-function setThrottle(func, delay) {
+export function setThrottle(func, delay) {
     let timer = null;
     return function () {
         if (!timer) {
@@ -43,5 +43,14 @@ function setThrottle(func, delay) {
                 timer = null;
             }, delay);
         }
+    }
+}
+
+function showCategoryBtn() {
+    const categoryBtn = document.getElementById('categoryBtn');
+    if (window.scrollY > 200) {
+        categoryBtn.classList.remove('unshow');
+    } else {
+        categoryBtn.classList.add('unshow');
     }
 }

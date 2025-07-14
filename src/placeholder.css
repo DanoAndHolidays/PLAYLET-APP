@@ -1,0 +1,62 @@
+:root {
+    --maincolor: #F9E14B;
+    --nextcolor: #000000;
+    --bodycolor: #e9e9e9;
+    --smallcolor: #555555;
+    --whitecolor: #ffffff;
+}
+
+.placeholder {
+    background-color: var(--whitecolor);
+
+}
+
+.placeholder div {
+    background-color: var(--bodycolor);
+    background-image: linear-gradient(to right,
+            #f6f7f8 0%, #eaebed 10%, #f6f7f8 20%, #f6f7f8 100%);
+    animation: bgPos 1s linear infinite;
+    background-size: 200% 100%;
+}
+
+.placeholder h4 {
+    margin-top: 13px;
+    width: 80%;
+    border-radius: 50px;
+    height: 20px;
+    background-color: var(--bodycolor);
+    background-image: linear-gradient(to right,
+            #f6f7f8 0%, #eaebed 10%, #f6f7f8 20%, #f6f7f8 100%);
+    animation: bgPos 1s linear infinite;
+    background-size: 200% 100%;
+}
+
+.placeholder small {
+    margin-top: 15px;
+    width: 15%;
+    border-radius: 50px;
+    height: 20px;
+    background-color: var(--whitecolor);
+}
+
+.placeholder p {
+    margin-top: 10px;
+    width: 80%;
+    border-radius: 50px;
+    height: 10px;
+    background-color: var(--bodycolor);
+    background-image: linear-gradient(to right,
+            #f6f7f8 0%, #eaebed 10%, #f6f7f8 20%, #f6f7f8 100%);
+    animation: bgPos 1s linear infinite;
+    background-size: 200% 100%;
+}
+
+@keyframes bgPos {
+    0% {
+        background-position: 50% 0;
+    }
+
+    100% {
+        background-position: -150% 0;
+    }
+}
