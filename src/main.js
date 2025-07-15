@@ -7,7 +7,7 @@ const category = document.getElementById('category');
 const categoryBtn = document.getElementById('categoryBtn');
 
 //清空主体的内容
-//mainRandomEl.innerHTML = '';
+mainRandomEl.innerHTML = '';
 showVideos(15);
 showCategoryList();
 showScrollInfo();
@@ -73,8 +73,7 @@ function showVideos(num) {
             videoList.forEach(element => {
                 const { episode, url, episode_total, title, img } = element;
 
-                const videoEl = document.querySelector('.placeholder')
-                console.log(videoEl);
+                const videoEl = document.querySelector('.placeholder');
 
                 videoEl.innerHTML = `
                 <div><img src="${img}" alt="剧集图片"></div>
@@ -83,6 +82,10 @@ function showVideos(num) {
                 <p>当前剧集 <span>${episode}</span></p>
             `;
                 videoEl.classList.remove('placeholder');
+
+                videoEl.addEventListener('click', () => {
+                    toPlay(episode, url, episode_total, title, img);
+                })
             });
         })
     }, 500);
@@ -118,4 +121,17 @@ function addPlaceHolder(num) {
         `
         mainRandomEl.appendChild(videoEl);
     }
+}
+
+function toPlay(episode, url, episode_total, title, img) {
+    const data = {
+        episode: episode,
+        url: url,
+        episode_total: episode_total,
+        title: title,
+        img: img,
+    }
+
+    const queryString = new URLSearchParams(data).toString();
+    window.location.href = `/components/play/play.html?${queryString}`;
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAYLET播放页</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="stylesheet" href="./play.css">
+    <link rel="icon" href="/public/image/icon.jpg" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <h1><a href="">PLAYLET</a></h1>
+            <input class="nav-serch" type="text" placeholder="请输入...">
+            <ul class="nav-ul">
+                <li><a href="">首页</a></li>
+                <li><a href="./components/category/category.html">分类</a></li>
+                <li><a href="./components/profile/profile.html">个人中心</a></li>
+                <li><a target="_blank" href="https://space.bilibili.com/111616585?spm_id_from=333.1007.0.0">BILIBILI</a>
+                </li>
+                <li><a target="_blank" href="https://github.com/DanoAndHolidays/PLAYLET-APP">GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="play">
+        <div class="left">
+            <div class="card">
+                <img class="img" src="" id="img" alt="shit">
+                <p id="title">title</p>
+                <p class="episode_total" id="episode_total">200集全</p>
+            </div>
+        </div>
+        <div class="media">
+            <video controls autoplay name="media" id="video">
+                <source class="url" id="source" src="#" type="video/mp4">
+            </video>
+        </div>
+        <div class="right">
+            <div class="episode">
+                episode
+            </div>
+            <div class="buttons">
+                <button>自动播放</button>
+                <button>下一集</button>
+            </div>
+        </div>
+    </main>
+    <script src="./play.js"></script>
+</body>
+
+</html>

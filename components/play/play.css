@@ -1,0 +1,78 @@
+.play img {
+    border: rgb(0, 0, 0) solid 1px;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+body {
+    background-color: #020001;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: block;
+    position: relative;
+}
+
+.nav {
+    background-color: #2a2828;
+    width: 100%;
+    height: 40px;
+}
+
+.nav a {
+    color: white;
+}
+
+.nav input {
+    display: none;
+}
+
+.play {
+    height: calc(100vh - 40px);
+    color: white;
+    display: flex;
+}
+
+.play .left {
+    border: blue solid 2px;
+    flex: 1;
+    padding: 20px;
+}
+
+.card {
+    width: 70%;
+    margin: 10px;
+}
+
+.media {
+    flex: 2;
+    height: calc(100vh - 40px);
+    border: yellow solid 2px;
+}
+
+.play video {
+    height: calc(100vh - 40px);
+    width: 100%;
+}
+
+.play .right {
+    border: green solid 2px;
+    flex: 1;
+}
+
+.episode {
+    height: 80%;
+    border: purple solid 2px;
+    margin: 20px;
+}
+
+.buttons {
+    position: absolute;
+    margin: 10px;
+    bottom: 0;
+}
+
+.buttons button:active {
+    transform: scale(0.98);
+}
