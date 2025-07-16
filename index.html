@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="./src/style.css">
 <link rel="stylesheet" href="./src/placeholder.css">
 <link rel="icon" href="./public/image/icon.jpg" type="image/x-icon">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <body>
     <header>
@@ -16,7 +17,7 @@
             <h1><a href="">PLAYLET</a></h1>
             <input class="nav-serch" type="text" placeholder="请输入...">
             <ul class="nav-ul">
-                <li><a href="">首页</a></li>
+                <li><a href="/index.html">首页</a></li>
                 <li><a href="./components/category/category.html">分类</a></li>
                 <li><a href="./components/profile/profile.html">个人中心</a></li>
                 <li><a target="_blank" href="https://space.bilibili.com/111616585?spm_id_from=333.1007.0.0">BILIBILI</a>
@@ -26,7 +27,10 @@
         </nav>
         <div class="category" id="category">
             <p>分区</p>
-            <button class="button unshow" id="categoryBtn">返回顶部</button>
+            <button class="button unshow" id="categoryBtn">
+                <i class="fa-solid fa-angles-up"></i>
+                返回顶部
+            </button>
         </div>
     </header>
 
@@ -36,7 +40,10 @@
     <div class="main-content" id="main-content">
         <div class="main-header">
             <h3>轮播剧场</h3>
-            <button class="button upDataBtn" id="upDataBtn">换一批</button>
+            <button class="button upDataBtn" id="upDataBtn">
+                <i class="fa-solid fa-rotate fa-lg"></i>
+                换一批
+            </button>
         </div>
         <div class="main-random" id="main-random">
 

@@ -62,9 +62,23 @@ body {
 }
 
 .episode {
-    height: 80%;
     border: purple solid 2px;
     margin: 20px;
+    display: grid;
+    grid-template-columns: 3rem 3rem 3rem 3rem 3rem;
+    grid-template-rows: 3rem 3rem 3rem;
+}
+
+.episode-container{
+    border:  yellow solid 2px;
+}
+
+.episode span {
+    padding: 0;
+    text-align: center;
+    border: red solid 2px;
+    margin: 5px;
+    cursor: pointer;
 }
 
 .buttons {
@@ -75,4 +89,12 @@ body {
 
 .buttons button:active {
     transform: scale(0.98);
+}
+
+@media (max-width:768px) {
+
+    .play .right,
+    .play .left {
+        display: none;
+    }
 }

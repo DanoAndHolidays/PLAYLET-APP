@@ -16,7 +16,7 @@
             <h1><a href="">PLAYLET</a></h1>
             <input class="nav-serch" type="text" placeholder="请输入...">
             <ul class="nav-ul">
-                <li><a href="">首页</a></li>
+                <li><a href="/index.html">首页</a></li>
                 <li><a href="./components/category/category.html">分类</a></li>
                 <li><a href="./components/profile/profile.html">个人中心</a></li>
                 <li><a target="_blank" href="https://space.bilibili.com/111616585?spm_id_from=333.1007.0.0">BILIBILI</a>
@@ -35,17 +35,20 @@
             </div>
         </div>
         <div class="media">
-            <video controls autoplay name="media" id="video">
-                <source class="url" id="source" src="#" type="video/mp4">
+            <video controls id="video">
+                <source class="url" id="source">
             </video>
         </div>
         <div class="right">
-            <div class="episode">
-                episode
+            <div class="episode-container">
+                <div class="episode" id="episode">
+
+                </div>
             </div>
             <div class="buttons">
                 <button>自动播放</button>
-                <button>下一集</button>
+                <button>
+                    下一集</button>
             </div>
         </div>
     </main>

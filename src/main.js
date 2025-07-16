@@ -71,8 +71,7 @@ function showVideos(num) {
             const videoList = response.data.data;
 
             videoList.forEach(element => {
-                const { episode, url, episode_total, title, img } = element;
-
+                const { eid, vid, episode, url, episode_total, title, img } = element;
                 const videoEl = document.querySelector('.placeholder');
 
                 videoEl.innerHTML = `
@@ -84,7 +83,7 @@ function showVideos(num) {
                 videoEl.classList.remove('placeholder');
 
                 videoEl.addEventListener('click', () => {
-                    toPlay(episode, url, episode_total, title, img);
+                    toPlay(eid, vid, episode, url, episode_total, title, img);
                 })
             });
         })
@@ -123,8 +122,10 @@ function addPlaceHolder(num) {
     }
 }
 
-function toPlay(episode, url, episode_total, title, img) {
+function toPlay(eid, vid, episode, url, episode_total, title, img) {
     const data = {
+        eid: eid,
+        vid: vid,
         episode: episode,
         url: url,
         episode_total: episode_total,

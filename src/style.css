@@ -2,6 +2,7 @@
     box-sizing: border-box;
     font-family: "MyFont", sans-serif;
     font-weight: 100;
+    white-space: nowrap;
 }
 
 :root {
@@ -16,6 +17,7 @@
     font-family: "MyFont";
     src: url('/public/font/zh-cn.ttf');
 }
+
 
 html {
     margin: 0;
@@ -32,7 +34,7 @@ body {
     justify-content: center;
     overflow-x: hidden;
     margin: 0%;
-    min-width: 500px;
+    min-width: 300px;
 }
 
 .unshow {
@@ -108,8 +110,9 @@ a:focus {
 
 .category {
     color: var(--nextcolor);
-    padding: 15px 40px;
+    padding: 15px 150px 15px 40px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     background-color: var(--whitecolor);
     opacity: 0.95;
@@ -170,10 +173,8 @@ a:focus {
 }
 
 .video {
-    max-width: 350px;
-    min-width: 250px;
-    width: 300px;
-    height: 450px;
+    flex: 15%;
+    height: 400px;
     border-radius: 10px;
     overflow: hidden;
     margin: 15px;
@@ -221,4 +222,34 @@ a:focus {
     width: 100%;
     background-color: var(--nextcolor);
     color: white;
+}
+
+@media (max-width:768px) {
+    .nav .nav-ul {
+        display: none;
+    }
+
+
+    .category span{
+        display: none;
+    }
+
+    .nav-serch {
+        display: none;
+    }
+
+    .video {
+        flex: 40%;
+        height: 300px;
+        font-size: smaller;
+    }
+
+    .video div {
+        height: 80%;
+    }
+
+    .main-content {
+        margin: 0;
+        padding: 0;
+    }
 }
