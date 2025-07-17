@@ -7,13 +7,14 @@
     <title>PLAYLET播放页</title>
     <link rel="stylesheet" href="/src/style.css">
     <link rel="stylesheet" href="./play.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="icon" href="/public/image/icon.jpg" type="image/x-icon">
 </head>
 
 <body>
     <header>
         <nav class="nav">
-            <h1><a href="">PLAYLET</a></h1>
+            <h1><a href="/index.html">PLAYLET</a></h1>
             <input class="nav-serch" type="text" placeholder="请输入...">
             <ul class="nav-ul">
                 <li><a href="/index.html">首页</a></li>
@@ -27,6 +28,26 @@
     </header>
 
     <main class="play">
+        <div class="controls" id="controls">
+            <span>
+                <i class="fa-solid fa-play fa-lg" id="playBtn" style="display: none;"></i>
+                <i class="fa-solid fa-pause fa-xl" id="pauseBtn"></i>
+                <span class="time" id="time">0:00/0:00</span>
+            </span>
+
+            <div id="duration-container">
+                <small id="duration"></small>
+                <small id="buffer" class="buffer"></small>
+            </div>
+            <span>
+                <i class="fa-solid fa-forward-step fa-lg" id="next">
+                    <span style="font-size: medium;">
+                        下一集
+                    </span>
+                </i>
+                <i class="fa-solid fa-bars fa-lg" id="more"></i>
+            </span>
+        </div>
         <div class="left">
             <div class="card">
                 <img class="img" src="" id="img" alt="shit">
@@ -35,7 +56,7 @@
             </div>
         </div>
         <div class="media">
-            <video controls id="video">
+            <video id="video" autoplay>
                 <source class="url" id="source">
             </video>
         </div>
@@ -44,11 +65,9 @@
                 <div class="episode" id="episode">
 
                 </div>
-            </div>
-            <div class="buttons">
-                <button>自动播放</button>
-                <button>
-                    下一集</button>
+                <div>
+                    <p id="currentEp">选集</p>
+                </div>
             </div>
         </div>
     </main>

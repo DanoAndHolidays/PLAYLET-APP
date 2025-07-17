@@ -32,12 +32,14 @@ body {
     height: calc(100vh - 40px);
     color: white;
     display: flex;
+    position: relative;
 }
 
 .play .left {
-    border: blue solid 2px;
     flex: 1;
     padding: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .card {
@@ -48,7 +50,11 @@ body {
 .media {
     flex: 2;
     height: calc(100vh - 40px);
-    border: yellow solid 2px;
+    min-width: 300px;
+}
+
+#currentEp span {
+    color: var(--maincolor);
 }
 
 .play video {
@@ -57,28 +63,47 @@ body {
 }
 
 .play .right {
-    border: green solid 2px;
     flex: 1;
+    position: relative;
 }
 
 .episode {
-    border: purple solid 2px;
-    margin: 20px;
+    margin: 15px 15px 0px;
     display: grid;
     grid-template-columns: 3rem 3rem 3rem 3rem 3rem;
     grid-template-rows: 3rem 3rem 3rem;
 }
 
-.episode-container{
-    border:  yellow solid 2px;
+.episode-container div p {
+    margin: 0.5rem;
+}
+
+.episode-container {
+    margin: 20px;
+    border-radius: 20px;
+    border: rgb(255, 255, 255) solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .episode span {
     padding: 0;
     text-align: center;
-    border: red solid 2px;
+    border: rgb(255, 255, 255) solid 1px;
+    border-radius: 10%;
     margin: 5px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.episode p {
+    padding: 0%;
+    margin: 0;
+
 }
 
 .buttons {
@@ -91,10 +116,103 @@ body {
     transform: scale(0.98);
 }
 
+.controls {
+    padding: 15px 5%;
+    position: absolute;
+    bottom: 0px;
+    background-color: rgba(255, 255, 255, 0.1);
+    min-width: 300px;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    i {
+        cursor: pointer;
+    }
+}
+
+.controls span i:hover {
+    color: var(--maincolor);
+}
+
+.time {
+    margin: 0 20px;
+}
+
+#duration-container {
+    display: inline;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 20px;
+    height: 5px;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.timeTooltip {
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2px 5px;
+    border-radius: 10px;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 100%;
+    transition: opacity 0.4s ease;
+}
+
+.buffer {
+    content: '';
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 5px;
+    width: 0%;
+    z-index: 90;
+}
+
+#duration {
+    content: '';
+    background-color: var(--maincolor);
+    position: absolute;
+    top: 50%;
+    left: -1px;
+    transform: translateY(-50%);
+    height: 5px;
+    width: 0%;
+    z-index: 100;
+}
+
+.current-episode {
+    color: #ff0000;
+    /* 当前集高亮颜色 */
+    font-weight: bold;
+}
+
+#next.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+@media (max-width:1100px) {
+    .play .left {
+        display: none;
+    }
+}
+
 @media (max-width:768px) {
 
     .play .right,
-    .play .left {
+    .card {
         display: none;
     }
 }
